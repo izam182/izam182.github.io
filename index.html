@@ -21,13 +21,28 @@
             font-size: 2rem;
             margin-bottom: 10px;
         }
-        .card {
-            background-color: #1c2b36;
+        .card-feature {
+            background-color: #fff;
+            color: #000;
             border: none;
             border-radius: 15px;
             padding: 20px;
             margin-bottom: 20px;
             text-align: center;
+        }
+        .card-skill {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px;
+            text-align: center;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+        .card-skill:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
         }
         footer {
             margin-top: 50px;
@@ -46,23 +61,24 @@
         <p class="lead">Jasa pembuatan sistem/aplikasi berbasis web.</p>
     </div>
 
+    <!-- Fitur -->
     <div class="row text-center my-5">
         <div class="col-md-4">
-            <div class="card">
+            <div class="card-feature">
                 <div class="icon-feature"><i class="fas fa-bolt"></i></div>
                 <h5>Responsif</h5>
                 <p>Desain dan performa sistem cepat dan optimal di berbagai perangkat.</p>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card">
+            <div class="card-feature">
                 <div class="icon-feature"><i class="fas fa-shield-alt"></i></div>
                 <h5>Keamanan</h5>
                 <p>Prioritas tinggi pada keamanan data dan sistem aplikasi Anda.</p>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card">
+            <div class="card-feature">
                 <div class="icon-feature"><i class="fas fa-code"></i></div>
                 <h5>Kode Bersih</h5>
                 <p>Struktur coding yang rapi, mudah dikembangkan dan scalable.</p>
@@ -70,18 +86,43 @@
         </div>
     </div>
 
+    <!-- Tentang Saya -->
     <div class="text-center">
         <h2 class="section-title">Tentang Saya</h2>
-        <img src="foto-anda.jpg" alt="Foto Izam" class="rounded-circle mb-3" width="150">
+        <img src="https://ppdb.mansageka.sch.id/izam.jpg" alt="Foto Izam" class="rounded-circle mb-3" width="150">
         <p>Menyukai tantangan dalam memecahkan algoritma untuk sistem/aplikasi anda.</p>
     </div>
 
+    <!-- Skill -->
     <div class="text-center">
         <h2 class="section-title">Skill</h2>
-        <p>HTML, PHP, CODEIGNITER, CSS, JAVASCRIPT, BOOTSTRAP, JQUERY</p>
+        <div class="row justify-content-center">
+            <div class="col-6 col-sm-4 col-md-3">
+                <div class="card-skill">HTML</div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3">
+                <div class="card-skill">CSS</div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3">
+                <div class="card-skill">JavaScript</div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3">
+                <div class="card-skill">PHP</div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3">
+                <div class="card-skill">CodeIgniter</div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3">
+                <div class="card-skill">Bootstrap</div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3">
+                <div class="card-skill">jQuery</div>
+            </div>
+        </div>
     </div>
 
-    <div class="text-center">
+    <!-- Proyek -->
+    <div class="text-center mt-5">
         <h2 class="section-title">Proyek</h2>
         <ul class="list-unstyled">
             <li>Aplikasi PPDB</li>
@@ -90,6 +131,7 @@
         </ul>
     </div>
 
+    <!-- Kontak -->
     <div class="text-center">
         <h2 class="section-title">Kontak</h2>
         <p><i class="fab fa-whatsapp"></i> Whatsapp: 082112345435</p>
