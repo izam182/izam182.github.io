@@ -80,11 +80,52 @@
     }
 </style>
 
+<style>
+    .title-section {
+        margin-top: 60px;
+        animation: fadeInDown 1s ease-in-out;
+    }
+
+    .title-section h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        background: linear-gradient(90deg, #6a11cb, #2575fc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textGlow 2s ease-in-out infinite alternate;
+    }
+
+    .title-section p {
+        font-size: 1.25rem;
+        color: #555;
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes textGlow {
+        from {
+            text-shadow: 0 0 10px rgba(106, 17, 203, 0.5);
+        }
+        to {
+            text-shadow: 0 0 20px rgba(37, 117, 252, 0.8);
+        }
+    }
+</style>
+
 </head>
 <body>
 
 <div class="container py-5">
-    <div class="text-center">
+    <div class="text-center title-section">
         <h1>izam182 Developer</h1>
         <p class="lead">Jasa pembuatan sistem/aplikasi berbasis web.</p>
     </div>
