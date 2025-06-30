@@ -127,7 +127,8 @@
 <div class="container py-5">
     <div class="text-center title-section">
         <h1>izam182 Developer</h1>
-        <p class="lead">Jasa pembuatan sistem/aplikasi berbasis web.</p>
+        <p class="lead">Spesialis Aplikasi Web Madrasah & Sekolah — Cepat, Aman, dan Siap Pakai</p>
+        <p class="text-light mt-2">Dipercaya oleh guru dan instansi pendidikan dalam membangun sistem PPDB, Presensi, Penilaian, SIAKAD, dan Keuangan Madrasah.</p>
     </div>
 
     <!-- Fitur -->
@@ -155,15 +156,46 @@
         </div>
     </div>
 
+    <!-- Kenapa Memilih Saya -->
+    <div class="text-center mt-5">
+        <h2 class="section-title">Kenapa Memilih Saya?</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-4">
+                <div class="card-feature">
+                    <i class="fas fa-chalkboard-teacher icon-feature"></i>
+                    <h5>Berpengalaman di Dunia Pendidikan</h5>
+                    <p>Sebagai guru informatika, saya memahami kebutuhan dan alur kerja di madrasah & sekolah.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card-feature">
+                    <i class="fas fa-tools icon-feature"></i>
+                    <h5>Sistem Siap Pakai</h5>
+                    <p>Sudah membangun dan mengimplementasikan sistem PPDB, Presensi, SIAKAD, dan Pembayaran Siswa.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card-feature">
+                    <i class="fas fa-user-check icon-feature"></i>
+                    <h5>Responsif & Profesional</h5>
+                    <p>Saya aktif merespon kebutuhan user, memberikan update sistem, serta membantu implementasi lapangan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Tentang Saya -->
     <!-- Tentang Saya -->
     <div class="text-center">
         <h2 class="section-title">Tentang Saya</h2>
         <img src="https://raw.githubusercontent.com/izam182/izam182.github.io/refs/heads/main/izam-github.jpg" alt="Foto Izam" class="rounded-circle mb-3" width="150">
         <h5>Muhammad Alwy Zamroni, S.Kom.</h5>
-        <p>PNS Guru di Kementerian Agama Yogyakarta</p>
-        <p>Menyukai tantangan dalam memecahkan algoritma untuk sistem/aplikasi anda. Konsultasikan kebutuhan sistem/aplikasi anda kepada kami.</p>
+        <p>PNS Guru Informatika di Kementerian Agama Yogyakarta & Web Developer</p>
+        <p>Saya berpengalaman membangun sistem pendidikan digital yang digunakan oleh madrasah: mulai dari PPDB, presensi siswa, manajemen nilai, keuangan (SISPAY), hingga dashboard guru dan wali kelas.</p>
+        <p>Sebagai guru yang aktif di dunia pengembangan sistem, saya memahami kebutuhan instansi pendidikan dari sisi teknis **dan operasional**. Hubungi saya jika Anda membutuhkan solusi aplikasi yang <strong>efisien, mudah digunakan, dan siap produksi.</strong></p>
     </div>
+
 
 
     <!-- Skill -->
@@ -283,12 +315,48 @@
 
     </div>
 
+    <!-- Form Kontak -->
+    <div class="text-center mt-5">
+        <h2 class="section-title">Kirim Pesan Langsung</h2>
+        <form action="https://formsubmit.co/youremail@example.com" method="POST" class="row justify-content-center">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://izam182.github.io/thanks.html">
+            <div class="col-md-6 mb-3">
+                <input type="text" name="nama" class="form-control" placeholder="Nama Anda" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <input type="email" name="email" class="form-control" placeholder="Email Anda" required>
+            </div>
+            <div class="col-12 mb-3">
+                <textarea name="pesan" rows="5" class="form-control" placeholder="Tulis pesan Anda di sini..." required></textarea>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Kirim Pesan</button>
+            </div>
+        </form>
+    </div>
+
+
 </div>
+
+    <div class="text-center mt-5">
+      <h2 class="section-title">Total Pengunjung</h2>
+      <p><span id="visit-count">Memuat...</span> kali dilihat</p>
+    </div>
 
 <footer>
     &copy; 2025 Muhammad Alwy Zamroni, S.Kom. | izam182 Developer. All rights reserved.
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Ganti 'izam182' dengan namespace dan 'homepage' dengan nama unik (bisa apa saja)
+      fetch('https://api.countapi.xyz/hit/izam182.github.io')
+        .then(res => res.json())
+        .then(res => {
+            document.getElementById('visit-count').innerText = res.value.toLocaleString();
+        });
+    </script>
+
 </body>
 </html>
