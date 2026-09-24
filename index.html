@@ -1,398 +1,3646 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>izam182 Full Stack Developer — Bangun Aplikasi Web Sekolah yang Canggih & Siap Pakai</title>
-    <meta name="description" content="Transformasi digital madrasah & sekolah Anda dimulai di sini. Saya bantu wujudkan sistem web modern: dari PPDB, Presensi, SIAKAD, hingga Keuangan. Clean Code, Fast, and Ready to Deploy.">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="izam182 Full Stack Developer — Solusi Digital Cerdas untuk Madrasah & Sekolah">
+
+    <title>izam182 — Full Stack Developer | Digital Solution for Education</title>
+
+    <meta name="description"
+          content="Portfolio Muhammad Alwy Zamroni, S.Kom. — Full Stack Web Developer dan pendidik yang membangun solusi digital untuk madrasah, sekolah, dan institusi pendidikan.">
+
+    <meta name="author" content="Muhammad Alwy Zamroni, S.Kom.">
+
+    <meta property="og:title"
+          content="izam182 Developer — Digital Solution for Education">
+
+    <meta property="og:description"
+          content="Portfolio Muhammad Alwy Zamroni, S.Kom. — Pengembangan aplikasi web untuk madrasah, sekolah, perpustakaan, akademik, pembayaran, PPDB, PTSP, dan sistem pendidikan lainnya.">
+
     <meta property="og:url" content="https://izam182.github.io">
-    <meta property="og:description" content="Butuh sistem pendidikan digital yang cepat, aman, dan efisien? Saya bantu wujudkan aplikasi web siap pakai dengan teknologi modern dan pengalaman lapangan.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/izam182/izam182.github.io/main/izammeta.png">
+
+    <meta property="og:image"
+          content="https://raw.githubusercontent.com/izam182/izam182.github.io/main/izammeta.png">
+
     <meta property="og:type" content="website">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon"
+          href="https://raw.githubusercontent.com/izam182/izam182.github.io/main/izammeta.png">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        rel="stylesheet"
+    >
+
     <style>
+
+        /* =========================================================
+           ROOT
+        ========================================================= */
+
+        :root {
+            --bg-dark: #070b16;
+            --bg-dark-2: #0c1222;
+            --card: rgba(255, 255, 255, 0.06);
+            --card-border: rgba(255, 255, 255, 0.10);
+
+            --text: #f8fafc;
+            --muted: #a5b4c7;
+
+            --primary: #6d5dfc;
+            --primary-2: #4f46e5;
+            --cyan: #22d3ee;
+            --green: #34d399;
+
+            --shadow: 0 25px 70px rgba(0, 0, 0, .35);
+
+            --radius-xl: 28px;
+            --radius-lg: 20px;
+            --radius-md: 15px;
+
+            --max-width: 1180px;
+        }
+
+
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            margin: 0;
+            padding: 0;
+
+            background:
+                radial-gradient(circle at 10% 10%, rgba(109, 93, 252, .18), transparent 28%),
+                radial-gradient(circle at 90% 15%, rgba(34, 211, 238, .12), transparent 25%),
+                radial-gradient(circle at 50% 90%, rgba(79, 70, 229, .12), transparent 30%),
+                var(--bg-dark);
+
+            color: var(--text);
+
+            font-family: 'Inter', sans-serif;
+
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+
+            background-image:
+                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+
+            background-size: 45px 45px;
+
+            mask-image: linear-gradient(to bottom, black, transparent);
+            opacity: .3;
+
+            z-index: -2;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ::selection {
+            background: var(--primary);
             color: white;
-            font-family: 'Poppins', sans-serif;
         }
+
+
+        /* =========================================================
+           UTILITIES
+        ========================================================= */
+
+        .container-custom {
+            width: min(var(--max-width), calc(100% - 32px));
+            margin: auto;
+        }
+
+        .section {
+            padding: 105px 0;
+            position: relative;
+        }
+
+        .section-header {
+            max-width: 720px;
+            margin: 0 auto 55px;
+            text-align: center;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 8px 14px;
+
+            border-radius: 100px;
+
+            border: 1px solid rgba(109, 93, 252, .25);
+
+            background: rgba(109, 93, 252, .08);
+
+            color: #b9b1ff;
+
+            font-size: .78rem;
+            font-weight: 700;
+
+            letter-spacing: .12em;
+            text-transform: uppercase;
+
+            margin-bottom: 18px;
+        }
+
         .section-title {
-            margin-bottom: 30px;
-            font-weight: bold;
-            font-size: 2rem;
+            font-family: 'Poppins', sans-serif;
+
+            font-size: clamp(2rem, 4vw, 3rem);
+
+            line-height: 1.15;
+
+            font-weight: 800;
+
+            margin-bottom: 18px;
+
+            letter-spacing: -.03em;
         }
-        .icon-feature {
-            font-size: 2rem;
+
+        .section-description {
+            color: var(--muted);
+
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
+
+        .navbar-custom {
+            position: fixed;
+
+            width: 100%;
+            top: 0;
+            left: 0;
+
+            z-index: 999;
+
+            padding: 18px 0;
+
+            transition:
+                padding .3s ease,
+                background .3s ease,
+                box-shadow .3s ease;
+        }
+
+        .navbar-custom.scrolled {
+            padding: 10px 0;
+
+            background: rgba(7, 11, 22, .82);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            box-shadow:
+                0 12px 40px rgba(0,0,0,.25);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-family: 'Poppins', sans-serif;
+
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .brand-logo {
+            width: 38px;
+            height: 38px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(135deg,
+                var(--primary),
+                var(--cyan));
+
+            color: white;
+
+            box-shadow:
+                0 8px 25px rgba(109, 93, 252, .35);
+        }
+
+        .nav-link {
+            color: #d8deea !important;
+
+            font-weight: 500;
+
+            margin-left: 8px;
+
+            transition:
+                color .25s ease,
+                transform .25s ease;
+        }
+
+        .nav-link:hover {
+            color: white !important;
+            transform: translateY(-1px);
+        }
+
+        .navbar-toggler {
+            border: 1px solid rgba(255,255,255,.15);
+            padding: 8px 10px;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            padding-top: 140px;
+            padding-bottom: 80px;
+
+            display: flex;
+            align-items: center;
+
+            position: relative;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            border-radius: 50%;
+
+            background: rgba(109, 93, 252, .10);
+
+            filter: blur(90px);
+
+            right: -180px;
+            bottom: -100px;
+
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 730px;
+        }
+
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            padding: 9px 14px;
+
+            border: 1px solid rgba(52, 211, 153, .20);
+
+            background: rgba(52, 211, 153, .08);
+
+            color: #a7f3d0;
+
+            border-radius: 100px;
+
+            font-size: .8rem;
+
+            margin-bottom: 22px;
+        }
+
+        .availability-dot {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: var(--green);
+
+            box-shadow:
+                0 0 0 5px rgba(52,211,153,.10);
+
+            animation: pulseDot 2s infinite;
+        }
+
+        @keyframes pulseDot {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.25);
+            }
+        }
+
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+
+            line-height: 1.03;
+
+            letter-spacing: -.055em;
+
+            font-weight: 800;
+
+            margin-bottom: 25px;
+        }
+
+        .gradient-text {
+            background:
+                linear-gradient(
+                    90deg,
+                    #ffffff 0%,
+                    #a7a0ff 35%,
+                    #67e8f9 100%
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            color: var(--muted);
+
+            font-size: clamp(1rem, 2vw, 1.15rem);
+
+            line-height: 1.85;
+
+            max-width: 690px;
+
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 13px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary-custom {
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--primary-2)
+                );
+
+            border: none;
+
+            padding: 13px 21px;
+
+            border-radius: 13px;
+
+            color: white;
+
+            font-weight: 700;
+
+            box-shadow:
+                0 15px 35px rgba(79,70,229,.28);
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 20px 45px rgba(79,70,229,.40);
+
+            color: white;
+        }
+
+        .btn-outline-custom {
+            padding: 12px 20px;
+
+            border-radius: 13px;
+
+            border: 1px solid rgba(255,255,255,.15);
+
+            color: white;
+
+            background: rgba(255,255,255,.04);
+
+            font-weight: 600;
+
+            transition:
+                transform .25s ease,
+                background .25s ease;
+        }
+
+        .btn-outline-custom:hover {
+            color: white;
+
+            transform: translateY(-3px);
+
+            background: rgba(255,255,255,.08);
+        }
+
+        .hero-info {
+            margin-top: 55px;
+
+            display: flex;
+
+            gap: 40px;
+
+            flex-wrap: wrap;
+        }
+
+        .hero-info-item small {
+            display: block;
+
+            color: #718096;
+
+            font-size: .72rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .12em;
+
+            margin-bottom: 5px;
+        }
+
+        .hero-info-item strong {
+            font-size: .95rem;
+        }
+
+        .hero-scroll {
+            position: absolute;
+
+            bottom: 30px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: #68748a;
+
+            font-size: .7rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .15em;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 42px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(109,93,252,.8),
+                    transparent
+                );
+        }
+
+
+        /* =========================================================
+           FEATURE CARDS
+        ========================================================= */
+
+        .feature-card {
+            height: 100%;
+
+            padding: 28px;
+
+            border-radius: var(--radius-lg);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.07),
+                    rgba(255,255,255,.025)
+                );
+
+            border: 1px solid var(--card-border);
+
+            box-shadow:
+                0 15px 50px rgba(0,0,0,.10);
+
+            transition:
+                transform .35s ease,
+                border-color .35s ease,
+                box-shadow .35s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+
+            border-color:
+                rgba(109,93,252,.35);
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,.22);
+        }
+
+        .feature-icon {
+            width: 54px;
+            height: 54px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 16px;
+
+            margin-bottom: 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(109,93,252,.20),
+                    rgba(34,211,238,.10)
+                );
+
+            color: #c4bfff;
+
+            font-size: 1.3rem;
+
+            border:
+                1px solid rgba(109,93,252,.20);
+        }
+
+        .feature-card h4 {
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 1.15rem;
+
             margin-bottom: 10px;
         }
-        .card-feature {
-            background-color: #fff;
-            color: #000;
-            border: none;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
+
+        .feature-card p {
+            color: var(--muted);
+
+            line-height: 1.7;
+
+            font-size: .92rem;
+
+            margin: 0;
         }
-        .card-skill {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
+
+
+        /* =========================================================
+           STATS
+        ========================================================= */
+
+        .stats-wrapper {
+            border-top:
+                1px solid rgba(255,255,255,.08);
+
+            border-bottom:
+                1px solid rgba(255,255,255,.08);
+
+            padding: 30px 0;
+
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
             padding: 15px;
-            margin: 10px;
-            text-align: center;
-            color: #fff;
-            transition: all 0.3s ease;
         }
-        .card-skill:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+
+        .stat-number {
+            display: block;
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 2rem;
+
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    white,
+                    #9fa6ff
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            color: #78859a;
+
+            font-size: .78rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .08em;
+        }
+
+
+        /* =========================================================
+           PROJECTS
+        ========================================================= */
+
+        .projects-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 24px;
+        }
+
+        .project-card {
+            position: relative;
+
+            height: 100%;
+
+            overflow: hidden;
+
+            border-radius: var(--radius-xl);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.07),
+                    rgba(255,255,255,.025)
+                );
+
+            border:
+                1px solid rgba(255,255,255,.09);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,.13);
+
+            transition:
+                transform .4s cubic-bezier(.2,.8,.2,1),
+                border-color .3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+
+            border-color:
+                rgba(109,93,252,.35);
+        }
+
+        .project-image {
+            position: relative;
+
+            aspect-ratio: 16 / 8;
+
+            overflow: hidden;
+
+            background: #101827;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform .6s cubic-bezier(.2,.8,.2,1);
+        }
+
+        .project-card:hover .project-image img {
             transform: scale(1.05);
         }
-        footer {
-            margin-top: 50px;
-            padding: 20px;
+
+        .project-image::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(7,11,22,.45),
+                    transparent 45%
+                );
+
+            pointer-events: none;
+        }
+
+        .project-body {
+            padding: 25px;
+        }
+
+        .project-meta {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 14px;
+        }
+
+        .project-category {
+            display: inline-flex;
+
+            padding: 6px 10px;
+
+            background:
+                rgba(109,93,252,.10);
+
+            border:
+                1px solid rgba(109,93,252,.18);
+
+            color:
+                #b9b1ff;
+
+            border-radius: 100px;
+
+            font-size: .7rem;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: .08em;
+        }
+
+        .project-year {
+            font-size: .72rem;
+
+            color: #6f7c90;
+        }
+
+        .project-body h3 {
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 1.3rem;
+
+            margin-bottom: 10px;
+        }
+
+        .project-body p {
+            color: var(--muted);
+
+            line-height: 1.75;
+
+            font-size: .91rem;
+
+            margin-bottom: 18px;
+        }
+
+        .project-tags {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+        }
+
+        .project-tag {
+            font-size: .7rem;
+
+            color: #aeb9c9;
+
+            padding: 6px 9px;
+
+            background:
+                rgba(255,255,255,.045);
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            border-radius: 8px;
+        }
+
+        /* Featured MLS */
+        .featured-project {
+            grid-column: 1 / -1;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.1fr)
+                minmax(0, .9fr);
+
+            min-height: 380px;
+        }
+
+        .featured-project .project-image {
+            aspect-ratio: auto;
+
+            min-height: 100%;
+        }
+
+        .featured-project .project-body {
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            padding: 42px;
+        }
+
+        .featured-badge {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            width: fit-content;
+
+            padding: 7px 12px;
+
+            margin-bottom: 18px;
+
+            border-radius: 100px;
+
+            background:
+                rgba(52,211,153,.09);
+
+            border:
+                1px solid rgba(52,211,153,.16);
+
+            color:
+                #a7f3d0;
+
+            font-size: .72rem;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: .08em;
+        }
+
+        .featured-project h3 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+        }
+
+        .project-features {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 10px;
+
+            margin: 18px 0 22px;
+        }
+
+        .project-feature {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 9px;
+
+            color: #b9c4d4;
+
+            font-size: .82rem;
+
+            line-height: 1.5;
+        }
+
+        .project-feature i {
+            color: var(--green);
+
+            margin-top: 3px;
+        }
+
+        .project-cta {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            width: fit-content;
+
+            color: #c5c0ff;
+
+            font-size: .85rem;
+
+            font-weight: 700;
+
+            transition:
+                gap .25s ease,
+                color .25s ease;
+        }
+
+        .project-cta:hover {
+            color: white;
+            gap: 12px;
+        }
+
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+
+        .about-card {
+            display: grid;
+
+            grid-template-columns:
+                280px minmax(0, 1fr);
+
+            gap: 45px;
+
+            align-items: center;
+
+            padding: 40px;
+
+            border-radius: var(--radius-xl);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.07),
+                    rgba(255,255,255,.025)
+                );
+
+            border:
+                1px solid rgba(255,255,255,.08);
+        }
+
+        .profile-wrapper {
+            position: relative;
+
+            width: 230px;
+            height: 230px;
+
+            margin: auto;
+        }
+
+        .profile-wrapper::before {
+            content: "";
+
+            position: absolute;
+
+            inset: -12px;
+
+            border-radius: 50%;
+
+            background:
+                conic-gradient(
+                    from 180deg,
+                    var(--primary),
+                    var(--cyan),
+                    transparent,
+                    var(--primary)
+                );
+
+            animation:
+                rotateGradient 8s linear infinite;
+        }
+
+        @keyframes rotateGradient {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .profile-image {
+            position: relative;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border:
+                7px solid #0b1120;
+
+            z-index: 1;
+        }
+
+        .about-content h3 {
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 1.8rem;
+
+            margin-bottom: 8px;
+        }
+
+        .about-role {
+            color: #aaa5ff;
+
+            font-weight: 600;
+
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: var(--muted);
+
+            line-height: 1.85;
+
+            font-size: .94rem;
+        }
+
+
+        /* =========================================================
+           SKILLS
+        ========================================================= */
+
+        .skills-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, minmax(0, 1fr));
+
+            gap: 12px;
+        }
+
+        .skill-item {
+            padding: 17px 10px;
+
             text-align: center;
-            font-size: 0.9rem;
-            color: #aaa;
+
+            border-radius: 14px;
+
+            background:
+                rgba(255,255,255,.035);
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            color: #d7deea;
+
+            font-size: .85rem;
+
+            font-weight: 600;
+
+            transition:
+                transform .25s ease,
+                background .25s ease,
+                border-color .25s ease;
         }
-    </style>
-    <style>
-    .icon-feature {
-        font-size: 40px;
-        margin-bottom: 15px;
-        color: #6c63ff;
-        animation: pulse 2s infinite ease-in-out;
-    }
 
-    @keyframes pulse {
-        0%, 100% {
-            transform: scale(1);
-            opacity: 1;
+        .skill-item i {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 1.1rem;
+
+            color: #aaa5ff;
         }
-        50% {
-            transform: scale(1.15);
-            opacity: 0.7;
+
+        .skill-item:hover {
+            transform: translateY(-4px);
+
+            background:
+                rgba(109,93,252,.09);
+
+            border-color:
+                rgba(109,93,252,.22);
         }
-    }
-</style>
 
-<style>
-    .title-section {
-        margin-top: 60px;
-        animation: fadeInDown 1s ease-in-out;
-    }
 
-    .title-section h1 {
-        font-size: 3rem;
-        font-weight: 700;
-        background: linear-gradient(90deg, #ffffff, #2575fc);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: textGlow 2s ease-in-out infinite alternate;
-    }
+        /* =========================================================
+           CONTACT
+        ========================================================= */
 
-    .title-section p {
-        font-size: 1.25rem;
-        color: #ffffff;
-    }
+        .contact-grid {
+            display: grid;
 
-    @keyframes fadeInDown {
-        from {
+            grid-template-columns:
+                .8fr 1.2fr;
+
+            gap: 24px;
+        }
+
+        .contact-card,
+        .form-card {
+            height: 100%;
+
+            padding: 32px;
+
+            border-radius: var(--radius-xl);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.07),
+                    rgba(255,255,255,.025)
+                );
+
+            border:
+                1px solid rgba(255,255,255,.08);
+        }
+
+        .contact-card h3 {
+            font-family: 'Poppins', sans-serif;
+
+            margin-bottom: 10px;
+        }
+
+        .contact-card > p {
+            color: var(--muted);
+
+            line-height: 1.7;
+
+            font-size: .9rem;
+
+            margin-bottom: 25px;
+        }
+
+        .contact-list {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 13px;
+        }
+
+        .contact-item {
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            padding: 13px;
+
+            border-radius: 13px;
+
+            background:
+                rgba(255,255,255,.035);
+
+            border:
+                1px solid rgba(255,255,255,.055);
+        }
+
+        .contact-icon {
+            flex: 0 0 auto;
+
+            width: 39px;
+            height: 39px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 11px;
+
+            background:
+                rgba(109,93,252,.12);
+
+            color: #bdb7ff;
+        }
+
+        .contact-item small {
+            display: block;
+
+            color: #708096;
+
+            font-size: .7rem;
+
+            margin-bottom: 2px;
+        }
+
+        .contact-item span {
+            font-size: .87rem;
+
+            color: #e5e9f1;
+
+            word-break: break-word;
+        }
+
+        .form-card input,
+        .form-card textarea {
+            background:
+                rgba(255,255,255,.045) !important;
+
+            border:
+                1px solid rgba(255,255,255,.10) !important;
+
+            color: white !important;
+
+            border-radius: 12px !important;
+
+            padding: 13px 14px !important;
+        }
+
+        .form-card input::placeholder,
+        .form-card textarea::placeholder {
+            color: #69758a;
+        }
+
+        .form-card input:focus,
+        .form-card textarea:focus {
+            border-color:
+                rgba(109,93,252,.5) !important;
+
+            box-shadow:
+                0 0 0 4px rgba(109,93,252,.08) !important;
+        }
+
+
+        /* =========================================================
+           VISITOR
+        ========================================================= */
+
+        .visitor-box {
+            max-width: 500px;
+
+            margin:
+                70px auto 0;
+
+            text-align: center;
+
+            padding: 25px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(255,255,255,.035);
+
+            border:
+                1px solid rgba(255,255,255,.07);
+        }
+
+        .visitor-number {
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 2.2rem;
+
+            font-weight: 800;
+
+            color: white;
+        }
+
+        .visitor-label {
+            color: #78859a;
+
+            font-size: .8rem;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 35px 0 45px;
+
+            border-top:
+                1px solid rgba(255,255,255,.07);
+
+            color: #687489;
+        }
+
+        .footer-inner {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+        }
+
+        .footer-name {
+            color: #b7c0cf;
+
+            font-weight: 600;
+        }
+
+        .footer-social {
+            display: flex;
+
+            gap: 9px;
+        }
+
+        .footer-social a {
+            width: 38px;
+            height: 38px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 11px;
+
+            background:
+                rgba(255,255,255,.035);
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            color: #96a1b2;
+
+            transition:
+                transform .25s ease,
+                color .25s ease,
+                background .25s ease;
+        }
+
+        .footer-social a:hover {
+            transform: translateY(-3px);
+
+            color: white;
+
+            background:
+                rgba(109,93,252,.10);
+        }
+
+
+        /* =========================================================
+           BACK TO TOP
+        ========================================================= */
+
+        #backToTop {
+            position: fixed;
+
+            right: 20px;
+            bottom: 20px;
+
+            width: 45px;
+            height: 45px;
+
+            border: none;
+
+            border-radius: 13px;
+
+            display: grid;
+            place-items: center;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--primary-2)
+                );
+
+            box-shadow:
+                0 12px 30px rgba(79,70,229,.3);
+
             opacity: 0;
-            transform: translateY(-30px);
+            visibility: hidden;
+
+            transform: translateY(15px);
+
+            transition:
+                all .3s ease;
+
+            z-index: 1000;
         }
-        to {
+
+        #backToTop.show {
             opacity: 1;
+            visibility: visible;
+
             transform: translateY(0);
         }
-    }
 
-    @keyframes textGlow {
-        from {
-            text-shadow: 0 0 10px rgba(106, 17, 203, 0.5);
-        }
-        to {
-            text-shadow: 0 0 20px rgba(37, 117, 252, 0.8);
-        }
-    }
-</style>
 
+        /* =========================================================
+           SCROLL REVEAL
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+
+            transform:
+                translateY(35px);
+
+            transition:
+                opacity .8s ease,
+                transform .8s cubic-bezier(.2,.8,.2,1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 991px) {
+
+            .navbar-custom {
+                padding: 12px 0;
+            }
+
+            .navbar-collapse {
+                margin-top: 12px;
+
+                padding: 15px;
+
+                border-radius: 15px;
+
+                background:
+                    rgba(7,11,22,.95);
+
+                backdrop-filter: blur(18px);
+            }
+
+            .nav-link {
+                margin: 3px 0;
+                padding: 10px 4px !important;
+            }
+
+            .featured-project {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-project .project-image {
+                aspect-ratio: 16 / 8;
+            }
+
+            .featured-project .project-body {
+                padding: 30px;
+            }
+
+            .about-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .skills-grid {
+                grid-template-columns:
+                    repeat(3, minmax(0,1fr));
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 767px) {
+
+            .section {
+                padding: 80px 0;
+            }
+
+            .container-custom {
+                width:
+                    min(
+                        var(--max-width),
+                        calc(100% - 24px)
+                    );
+            }
+
+            .hero {
+                padding-top: 120px;
+                padding-bottom: 100px;
+            }
+
+            .hero-title {
+                font-size:
+                    clamp(
+                        2.4rem,
+                        12vw,
+                        4rem
+                    );
+            }
+
+            .hero-description {
+                font-size: .96rem;
+            }
+
+            .hero-info {
+                gap: 22px;
+                margin-top: 40px;
+            }
+
+            .hero-scroll {
+                display: none;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-project {
+                grid-column: auto;
+            }
+
+            .project-features {
+                grid-template-columns: 1fr;
+            }
+
+            .about-card {
+                padding: 25px;
+            }
+
+            .profile-wrapper {
+                width: 190px;
+                height: 190px;
+            }
+
+            .skills-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0,1fr));
+            }
+
+            .contact-card,
+            .form-card {
+                padding: 23px;
+            }
+
+            .footer-inner {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+
+
+        @media (max-width: 420px) {
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .stats-wrapper .row {
+                row-gap: 10px;
+            }
+
+            .stat-number {
+                font-size: 1.65rem;
+            }
+
+            .project-body {
+                padding: 21px;
+            }
+
+            .featured-project .project-body {
+                padding: 24px 21px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+
+                transition-duration: .01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+    </style>
 </head>
+
+
 <body>
 
-<div class="container py-5">
-    <div class="text-center title-section">
-        <h1>izam182 Developer</h1>
-        <p class="lead">Spesialis Aplikasi Web Madrasah & Sekolah — Cepat, Aman, dan Siap Pakai</p>
-        <p class="text-light mt-2">Membantu sekolah dan madrasah membangun sistem digital yang efisien untuk berbagai kebutuhan seperti pendaftaran, absensi, penilaian, keuangan, dan administrasi akademik.</p>
+
+<!-- =============================================================
+     NAVBAR
+============================================================= -->
+
+<nav id="mainNavbar"
+     class="navbar navbar-expand-lg navbar-dark navbar-custom">
+
+    <div class="container-custom">
+
+        <a class="navbar-brand"
+           href="#home">
+
+            <span class="brand-logo">
+                <i class="fa-solid fa-code"></i>
+            </span>
+
+            <span>izam182</span>
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarMenu"
+            aria-controls="navbarMenu"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+
+        <div class="collapse navbar-collapse"
+             id="navbarMenu">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">
+                        Beranda
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">
+                        Proyek
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">
+                        Tentang
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">
+                        Teknologi
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">
+                        Kontak
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
     </div>
 
-    <!-- Fitur -->
-    <div class="row text-center my-5">
-        <div class="col-md-4">
-            <div class="card-feature">
-                <div class="icon-feature"><i class="fas fa-bolt"></i></div>
-                <h5>Responsif</h5>
-                <p>Desain dan performa sistem cepat dan optimal di berbagai perangkat.</p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card-feature">
-                <div class="icon-feature"><i class="fas fa-shield-alt"></i></div>
-                <h5>Keamanan</h5>
-                <p>Prioritas tinggi pada keamanan data dan sistem aplikasi Anda.</p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card-feature">
-                <div class="icon-feature"><i class="fas fa-code"></i></div>
-                <h5>Kode Bersih</h5>
-                <p>Struktur coding yang rapi, mudah dikembangkan dan scalable.</p>
-            </div>
-        </div>
-    </div>
+</nav>
 
-    <!-- Kenapa Memilih Saya -->
-    <div class="text-center mt-5">
-        <h2 class="section-title">Kenapa Memilih Saya?</h2>
-        <div class="row justify-content-center">
-            <div class="col-md-4 mb-4">
-                <div class="card-feature">
-                    <i class="fas fa-chalkboard-teacher icon-feature"></i>
-                    <h5>Berpengalaman di Dunia Pendidikan</h5>
-                    <p>Sebagai guru informatika, saya memahami kebutuhan dan alur kerja di madrasah & sekolah.</p>
+
+
+<!-- =============================================================
+     HERO
+============================================================= -->
+
+<section id="home"
+         class="hero">
+
+    <div class="container-custom">
+
+        <div class="hero-content reveal active">
+
+            <div class="availability">
+
+                <span class="availability-dot"></span>
+
+                Full Stack Developer & Educator
+
+            </div>
+
+
+            <h1 class="hero-title">
+
+                Membangun
+                <span class="gradient-text">
+                    solusi digital
+                </span>
+
+                untuk dunia pendidikan.
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Saya Muhammad Alwy Zamroni, S.Kom.
+                Saya merancang dan mengembangkan aplikasi web
+                yang membantu madrasah dan sekolah mengelola
+                proses administrasi, akademik, pelayanan,
+                hingga digitalisasi perpustakaan secara lebih
+                efektif dan terintegrasi.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="#projects"
+                   class="btn-primary-custom">
+
+                    <i class="fa-solid fa-layer-group me-2"></i>
+
+                    Lihat Project
+
+                </a>
+
+
+                <a href="#contact"
+                   class="btn-outline-custom">
+
+                    <i class="fa-regular fa-paper-plane me-2"></i>
+
+                    Hubungi Saya
+
+                </a>
+
+            </div>
+
+
+            <div class="hero-info">
+
+                <div class="hero-info-item">
+
+                    <small>Fokus</small>
+
+                    <strong>
+                        Educational Technology
+                    </strong>
+
                 </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card-feature">
-                    <i class="fas fa-tools icon-feature"></i>
-                    <h5>Sistem Siap Pakai</h5>
-                    <p>Sudah membangun dan mengimplementasikan sistem PPDB, Presensi, SIAKAD, dan Pembayaran Siswa.</p>
+
+
+                <div class="hero-info-item">
+
+                    <small>Spesialisasi</small>
+
+                    <strong>
+                        Web Application
+                    </strong>
+
                 </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card-feature">
-                    <i class="fas fa-user-check icon-feature"></i>
-                    <h5>Responsif & Profesional</h5>
-                    <p>Saya aktif merespon kebutuhan user, memberikan update sistem, serta membantu implementasi lapangan.</p>
+
+
+                <div class="hero-info-item">
+
+                    <small>Platform</small>
+
+                    <strong>
+                        Web • Mobile Friendly
+                    </strong>
+
                 </div>
+
             </div>
+
         </div>
-    </div>
 
 
-    <!-- Tentang Saya -->
-    <!-- Tentang Saya -->
-    <div class="text-center">
-        <h2 class="section-title">Tentang Saya</h2>
-        <img src="https://raw.githubusercontent.com/izam182/izam182.github.io/refs/heads/main/izam-github.jpg" alt="Foto Izam" class="rounded-circle mb-3" width="150">
-        <h5>Muhammad Alwy Zamroni, S.Kom.</h5>
-        <p>Full Stack Web Developer & Pendidik Profesional dengan latar belakang di dunia pendidikan madrasah.</p>
-        <p>Saya memiliki pengalaman luas dalam merancang dan membangun sistem digital seperti PPDB, presensi online, manajemen nilai, keuangan sekolah (SISPAY), hingga dashboard guru dan wali kelas yang digunakan secara langsung oleh madrasah dan instansi pendidikan.</p>
-        <p>Dengan perpaduan pemahaman teknis dan wawasan operasional di lingkungan pendidikan, saya siap membantu Anda membangun aplikasi web yang <strong>efisien, mudah digunakan, aman, dan siap diterapkan di lapangan.</strong></p>
-    </div>
+        <div class="stats-wrapper reveal">
+
+            <div class="row">
+
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+
+                        <span
+                            class="stat-number"
+                            data-target="8">
+                            0
+                        </span>
+
+                        <span class="stat-label">
+                            Project Utama
+                        </span>
+
+                    </div>
+                </div>
 
 
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
 
-    <!-- Skill -->
-    <div class="text-center">
-        <h2 class="section-title">Skill</h2>
-        <div class="row justify-content-center">
-            <div class="col-6 col-sm-4 col-md-3">
-                <div class="card-skill">HTML</div>
+                        <span
+                            class="stat-number"
+                            data-target="9">
+                            0
+                        </span>
+
+                        <span class="stat-label">
+                            Teknologi
+                        </span>
+
+                    </div>
+                </div>
+
+
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+
+                        <span
+                            class="stat-number"
+                            data-target="100">
+                            0
+                        </span>
+
+                        <span class="stat-label">
+                            % Fokus Pendidikan
+                        </span>
+
+                    </div>
+                </div>
+
+
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+
+                        <span
+                            class="stat-number"
+                            data-target="24">
+                            0
+                        </span>
+
+                        <span class="stat-label">
+                            /7 Digital Access
+                        </span>
+
+                    </div>
+                </div>
+
             </div>
-            <div class="col-6 col-sm-4 col-md-3">
-                <div class="card-skill">CSS</div>
-            </div>
-            <div class="col-6 col-sm-4 col-md-3">
-                <div class="card-skill">JavaScript</div>
-            </div>
-            <div class="col-6 col-sm-4 col-md-3">
-                <div class="card-skill">PHP</div>
-            </div>
-            <div class="col-6 col-sm-4 col-md-3">
-                <div class="card-skill">CodeIgniter</div>
-            </div>
-            <div class="col-6 col-sm-4 col-md-3">
-                <div class="card-skill">Bootstrap</div>
-            </div>
-            <div class="col-6 col-sm-4 col-md-3">
-                <div class="card-skill">jQuery</div>
-            </div>
-            <div class="col-6 col-sm-4 col-md-3">
-                <div class="card-skill">REST API</div>
-            </div>
-            <div class="col-6 col-sm-4 col-md-3">
-                <div class="card-skill">AI Decision Support</div>
-            </div>
+
         </div>
+
     </div>
 
-    <!-- Proyek -->
-    <div class="text-center mt-5">
-      <h2 class="section-title mb-4">Proyek</h2>
-      <div class="container">
+
+    <div class="hero-scroll">
+
+        Scroll untuk melihat lebih banyak
+
+        <span class="scroll-line"></span>
+
+    </div>
+
+</section>
+
+
+
+<!-- =============================================================
+     VALUE
+============================================================= -->
+
+<section class="section">
+
+    <div class="container-custom">
+
+        <div class="section-header reveal">
+
+            <span class="section-label">
+                <i class="fa-solid fa-sparkles"></i>
+                Value
+            </span>
+
+            <h2 class="section-title">
+                Teknologi yang dibuat
+                untuk kebutuhan nyata.
+            </h2>
+
+            <p class="section-description">
+                Bukan sekadar membuat aplikasi, tetapi memahami
+                proses kerja pengguna lalu menerjemahkannya
+                menjadi sistem yang praktis dan mudah digunakan.
+            </p>
+
+        </div>
+
+
         <div class="row g-4">
 
-        <!-- PPDB -->
-        <div class="col-md-6">
-            <div class="d-flex flex-column flex-md-row align-items-center bg-light text-dark rounded shadow p-3">
-                <img src="https://raw.githubusercontent.com/izam182/izam182.github.io/refs/heads/main/ppdb.png" alt="Aplikasi PPDB" class="img-fluid rounded me-md-4 mb-3 mb-md-0" style="width: 150px; height: auto;">
-                <div class="text-start">
-                    <h5 class="mb-1">Aplikasi PPDB</h5>
-                    <p class="mb-0">Sistem Pendaftaran Peserta Didik Baru berbasis web yang responsif dan mudah digunakan.</p>
-                </div>
-            </div>
-        </div>
+            <div class="col-md-4 reveal">
 
-        <!-- Ujian Online -->
-        <div class="col-md-6">
-            <div class="d-flex flex-column flex-md-row align-items-center bg-light text-dark rounded shadow p-3">
-                <img src="https://raw.githubusercontent.com/izam182/izam182.github.io/refs/heads/main/ujon.png" alt="Aplikasi Ujian Online" class="img-fluid rounded me-md-4 mb-3 mb-md-0" style="width: 150px; height: auto;">
-                <div class="text-start">
-                    <h5 class="mb-1">Aplikasi Ujian Online</h5>
-                    <p class="mb-0">Platform ujian digital untuk siswa, mendukung pilihan ganda, esai, dan rekap hasil otomatis.</p>
-                </div>
-            </div>
-        </div>
+                <div class="feature-card">
 
-        <!-- Sistem Informasi Sekolah -->
-        <div class="col-md-6">
-            <div class="d-flex flex-column flex-md-row align-items-center bg-light text-dark rounded shadow p-3">
-                <img src="https://raw.githubusercontent.com/izam182/izam182.github.io/refs/heads/main/sim.png" alt="Sistem Informasi Sekolah" class="img-fluid rounded me-md-4 mb-3 mb-md-0" style="width: 150px; height: auto;">
-                <div class="text-start">
-                    <h5 class="mb-1">Aplikasi Sistem Informasi Sekolah</h5>
-                    <p class="mb-0">Sistem terintegrasi untuk manajemen data siswa, guru, absensi, nilai, dan laporan.</p>
-                </div>
-            </div>
-        </div>
-        <!-- Sistem Manajemen Pembayaran Siswa -->
-        <div class="col-md-6">
-            <div class="d-flex flex-column flex-md-row align-items-center bg-light text-dark rounded shadow p-3">
-                <img src="https://raw.githubusercontent.com/izam182/izam182.github.io/refs/heads/main/sispay.png" alt="Sistem Manajemen Pembayaran Siswa" class="img-fluid rounded me-md-4 mb-3 mb-md-0" style="width: 150px; height: auto;">
-                <div class="text-start">
-                    <h5 class="mb-1">Aplikasi Sistem Manajemen Pembayaran Siswa</h5>
-                    <p class="mb-0">Sistem terintegrasi untuk menyimpan pembayaran siswa meliputi SPP, Angsuran, Tabungan, dan pembayaran lainnya.</p>
-                </div>
-            </div>
-        </div>
-        <!-- Sistem Informasi Akademik (SIAKAD) -->
-        <div class="col-md-6">
-            <div class="d-flex flex-column flex-md-row align-items-center bg-light text-dark rounded shadow p-3">
-                <img src="https://raw.githubusercontent.com/izam182/izam182.github.io/refs/heads/main/siakad.png" alt="Aplikasi SIAKAD" class="img-fluid rounded me-md-4 mb-3 mb-md-0" style="width: 150px; height: auto;">
-                <div class="text-start">
-                    <h5 class="mb-1">Aplikasi SIAKAD</h5>
-                    <p class="mb-0">
-                      Sistem Akademik digital untuk manajemen data siswa, guru, absensi, nilai, jadwal, dan rapor. 
-                      Dirancang untuk mempermudah kerja guru dan operator sekolah, serta dilengkapi fitur <strong>Madrasah Insight</strong> berbasis AI untuk menganalisis kinerja siswa dan memberikan rekomendasi dukungan belajar secara otomatis.
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+
+                    <h4>
+                        Efisien
+                    </h4>
+
+                    <p>
+                        Sistem dirancang untuk mengurangi pekerjaan
+                        manual, mempercepat proses administrasi,
+                        dan membantu pengguna bekerja lebih efektif.
                     </p>
+
                 </div>
+
             </div>
-        </div>
-        
-        <!-- Aplikasi PTSP Online -->
-        <div class="col-md-6">
-            <div class="d-flex flex-column flex-md-row align-items-center bg-light text-dark rounded shadow p-3">
-                <img src="https://raw.githubusercontent.com/izam182/izam182.github.io/refs/heads/main/ptsp.png" alt="Aplikasi PTSP" class="img-fluid rounded me-md-4 mb-3 mb-md-0" style="width: 150px; height: auto;">
-                <div class="text-start">
-                    <h5 class="mb-1">Aplikasi PTSP Online</h5>
-                    <p class="mb-0">Pelayanan Terpadu Satu Pintu (PTSP) berbasis web yang memudahkan masyarakat dan siswa mengajukan permohonan surat dengan notifikasi WA, tracking status, dan digitalisasi berkas.</p>
+
+
+            <div class="col-md-4 reveal">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+
+                    <h4>
+                        Responsif
+                    </h4>
+
+                    <p>
+                        Antarmuka dibuat agar nyaman digunakan
+                        pada komputer, laptop, tablet, maupun
+                        smartphone.
+                    </p>
+
                 </div>
+
             </div>
+
+
+            <div class="col-md-4 reveal">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+
+                    <h4>
+                        Terstruktur
+                    </h4>
+
+                    <p>
+                        Mengutamakan struktur aplikasi yang rapi,
+                        mudah dipelihara, dan dapat dikembangkan
+                        mengikuti kebutuhan institusi.
+                    </p>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <!-- Website Yayasan Berkah Ridho Ibu -->
-        <div class="col-md-6">
-          <div class="d-flex flex-column flex-md-row align-items-center bg-light text-dark rounded shadow p-3">
-            <img src="https://raw.githubusercontent.com/izam182/izam182.github.io/refs/heads/main/berkah.png" alt="Website Yayasan Berkah Ridho Ibu" class="img-fluid rounded me-md-4 mb-3 mb-md-0" style="width: 150px; height: auto;">
-            <div class="text-start">
-              <h5 class="mb-1">Website Yayasan Berkah Ridho Ibu</h5>
-              <p class="mb-0">
-                Website Company Profile resmi yayasan sosial yang bergerak di bidang <strong>Dapur Berkah</strong> dan <strong>Rumah Tahfidz</strong>. Dibangun menggunakan CodeIgniter 3 dengan desain modern, mobile-friendly, dan terintegrasi dengan WhatsApp untuk komunikasi langsung.  
-                Menyediakan informasi program, donasi, kegiatan sosial, dan fitur dinamis yang mudah dikelola oleh admin yayasan.
-              </p>
-            </div>
-          </div>
+    </div>
+
+</section>
+
+
+
+<!-- =============================================================
+     PROJECTS
+============================================================= -->
+
+<section id="projects"
+         class="section">
+
+    <div class="container-custom">
+
+        <div class="section-header reveal">
+
+            <span class="section-label">
+
+                <i class="fa-solid fa-laptop-code"></i>
+
+                Portfolio
+
+            </span>
+
+            <h2 class="section-title">
+
+                Project yang saya kembangkan
+
+            </h2>
+
+            <p class="section-description">
+
+                Kumpulan aplikasi dan sistem digital yang
+                dikembangkan untuk menjawab kebutuhan
+                administrasi, akademik, pelayanan, pembayaran,
+                dan perpustakaan.
+
+            </p>
+
         </div>
+
+
+        <div class="projects-grid">
+
+
+            <!-- =================================================
+                 MLS — FEATURED PROJECT
+            ================================================== -->
+
+            <article class="project-card featured-project reveal">
+
+                <div class="project-image">
+
+                    <!-- File harus berada satu folder dengan index.html -->
+                    <img
+                        src="perpustakaan.png"
+                        alt="Madrasah Library System - MLS"
+                        loading="eager"
+                    >
+
+                </div>
+
+
+                <div class="project-body">
+
+                    <span class="featured-badge">
+
+                        <i class="fa-solid fa-star"></i>
+
+                        Project Terbaru
+
+                    </span>
+
+
+                    <div class="project-meta">
+
+                        <span class="project-category">
+                            Library Management
+                        </span>
+
+                        <span class="project-year">
+                            2026
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        MLS — Madrasah Library System
+                    </h3>
+
+
+                    <p>
+
+                        Sistem manajemen perpustakaan berbasis web
+                        yang dirancang khusus untuk mendukung
+                        pengelolaan perpustakaan madrasah secara
+                        terintegrasi.
+
+                        MLS membantu pengelola perpustakaan mengelola
+                        koleksi buku, eksemplar, anggota, transaksi
+                        sirkulasi, presensi pengunjung, hingga
+                        reservasi buku melalui satu sistem.
+
+                    </p>
+
+
+                    <div class="project-features">
+
+                        <div class="project-feature">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>
+                                Manajemen buku & eksemplar
+                            </span>
+                        </div>
+
+                        <div class="project-feature">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>
+                                Data anggota perpustakaan
+                            </span>
+                        </div>
+
+                        <div class="project-feature">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>
+                                Peminjaman & pengembalian
+                            </span>
+                        </div>
+
+                        <div class="project-feature">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>
+                                Perpanjangan & reservasi
+                            </span>
+                        </div>
+
+                        <div class="project-feature">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>
+                                Presensi pengunjung dengan QR
+                            </span>
+                        </div>
+
+                        <div class="project-feature">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>
+                                Dukungan barcode scanning
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="project-tags">
+
+                        <span class="project-tag">
+                            PHP
+                        </span>
+
+                        <span class="project-tag">
+                            CodeIgniter 3
+                        </span>
+
+                        <span class="project-tag">
+                            MySQL
+                        </span>
+
+                        <span class="project-tag">
+                            Bootstrap
+                        </span>
+
+                        <span class="project-tag">
+                            JavaScript
+                        </span>
+
+                        <span class="project-tag">
+                            QR / Barcode
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 PPDB
+            ================================================== -->
+
+            <article class="project-card reveal">
+
+                <div class="project-image">
+
+                    <img
+                        src="ppdb.png"
+                        alt="Aplikasi PPDB"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="project-body">
+
+                    <div class="project-meta">
+
+                        <span class="project-category">
+                            Admission
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Aplikasi PPDB
+                    </h3>
+
+                    <p>
+                        Sistem Penerimaan Peserta Didik Baru
+                        berbasis web untuk mengelola proses
+                        pendaftaran secara digital, terstruktur,
+                        dan mudah digunakan.
+                    </p>
+
+
+                    <div class="project-tags">
+
+                        <span class="project-tag">
+                            Web App
+                        </span>
+
+                        <span class="project-tag">
+                            PHP
+                        </span>
+
+                        <span class="project-tag">
+                            Database
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 UJIAN ONLINE
+            ================================================== -->
+
+            <article class="project-card reveal">
+
+                <div class="project-image">
+
+                    <img
+                        src="ujon.png"
+                        alt="Aplikasi Ujian Online"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="project-body">
+
+                    <div class="project-meta">
+
+                        <span class="project-category">
+                            Assessment
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Aplikasi Ujian Online
+                    </h3>
+
+                    <p>
+                        Platform ujian digital yang mendukung
+                        soal pilihan ganda, esai, pengolahan
+                        jawaban, dan rekapitulasi hasil.
+                    </p>
+
+
+                    <div class="project-tags">
+
+                        <span class="project-tag">
+                            CBT
+                        </span>
+
+                        <span class="project-tag">
+                            PHP
+                        </span>
+
+                        <span class="project-tag">
+                            JavaScript
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 SIM
+            ================================================== -->
+
+            <article class="project-card reveal">
+
+                <div class="project-image">
+
+                    <img
+                        src="sim.png"
+                        alt="Sistem Informasi Sekolah"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="project-body">
+
+                    <div class="project-meta">
+
+                        <span class="project-category">
+                            School Information
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Sistem Informasi Sekolah
+                    </h3>
+
+                    <p>
+                        Sistem terintegrasi untuk pengelolaan
+                        data siswa, guru, absensi, nilai,
+                        administrasi, dan berbagai laporan sekolah.
+                    </p>
+
+
+                    <div class="project-tags">
+
+                        <span class="project-tag">
+                            Information System
+                        </span>
+
+                        <span class="project-tag">
+                            PHP
+                        </span>
+
+                        <span class="project-tag">
+                            MySQL
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 SISPAY
+            ================================================== -->
+
+            <article class="project-card reveal">
+
+                <div class="project-image">
+
+                    <img
+                        src="sispay.png"
+                        alt="Sistem Manajemen Pembayaran Siswa"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="project-body">
+
+                    <div class="project-meta">
+
+                        <span class="project-category">
+                            Finance
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Sistem Manajemen Pembayaran Siswa
+                    </h3>
+
+                    <p>
+                        Sistem untuk mengelola berbagai pembayaran
+                        siswa seperti SPP, angsuran, tabungan,
+                        dan transaksi pembayaran lainnya secara
+                        terpusat.
+                    </p>
+
+
+                    <div class="project-tags">
+
+                        <span class="project-tag">
+                            SISPAY
+                        </span>
+
+                        <span class="project-tag">
+                            Finance
+                        </span>
+
+                        <span class="project-tag">
+                            Dashboard
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 SIAKAD
+            ================================================== -->
+
+            <article class="project-card reveal">
+
+                <div class="project-image">
+
+                    <img
+                        src="siakad.png"
+                        alt="Aplikasi SIAKAD"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="project-body">
+
+                    <div class="project-meta">
+
+                        <span class="project-category">
+                            Academic
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Sistem Informasi Akademik — SIAKAD
+                    </h3>
+
+                    <p>
+                        Sistem akademik untuk pengelolaan data
+                        siswa, guru, absensi, nilai, jadwal,
+                        dan rapor. Sistem juga dilengkapi
+                        <strong>Madrasah Insight</strong> untuk
+                        membantu analisis data pendidikan.
+                    </p>
+
+
+                    <div class="project-tags">
+
+                        <span class="project-tag">
+                            SIAKAD
+                        </span>
+
+                        <span class="project-tag">
+                            Analytics
+                        </span>
+
+                        <span class="project-tag">
+                            AI Support
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 PTSP
+            ================================================== -->
+
+            <article class="project-card reveal">
+
+                <div class="project-image">
+
+                    <img
+                        src="ptsp.png"
+                        alt="Aplikasi PTSP Online"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="project-body">
+
+                    <div class="project-meta">
+
+                        <span class="project-category">
+                            Public Service
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Aplikasi PTSP Online
+                    </h3>
+
+                    <p>
+                        Sistem Pelayanan Terpadu Satu Pintu
+                        yang mendigitalisasi pengajuan surat,
+                        tracking status, berkas, dan notifikasi
+                        WhatsApp.
+                    </p>
+
+
+                    <div class="project-tags">
+
+                        <span class="project-tag">
+                            PTSP
+                        </span>
+
+                        <span class="project-tag">
+                            WhatsApp
+                        </span>
+
+                        <span class="project-tag">
+                            Tracking
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 BERKAH RIDHO IBU
+            ================================================== -->
+
+            <article class="project-card reveal">
+
+                <div class="project-image">
+
+                    <img
+                        src="berkah.png"
+                        alt="Website Yayasan Berkah Ridho Ibu"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="project-body">
+
+                    <div class="project-meta">
+
+                        <span class="project-category">
+                            Website
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Website Yayasan Berkah Ridho Ibu
+                    </h3>
+
+                    <p>
+                        Company profile digital untuk yayasan sosial
+                        yang menyajikan program, kegiatan,
+                        donasi, Rumah Tahfidz, Dapur Berkah,
+                        dan komunikasi melalui WhatsApp.
+                    </p>
+
+
+                    <div class="project-tags">
+
+                        <span class="project-tag">
+                            Company Profile
+                        </span>
+
+                        <span class="project-tag">
+                            CodeIgniter 3
+                        </span>
+
+                        <span class="project-tag">
+                            WhatsApp
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
     </div>
-    </div>
-</div>
+
+</section>
 
 
-    <!-- Kontak -->
-    <div class="text-center">
-        <h2 class="section-title">Kontak</h2>
-        <p class="text-light">Klik link di bawah untuk langsung menghubungi saya:</p>
-        
-        <p>
-          <i class="fab fa-whatsapp"></i> 
-          Whatsapp: 
-          <a href="https://wa.me/6282112345435" target="_blank" style="text-decoration: none; color: inherit;">
-            082112345435
-          </a>
-        </p>
-        <p>
-          <i class="fab fa-instagram"></i>
-          Instagram:
-          <a href="https://instagram.com/izam182" target="_blank" style="text-decoration: none; color: inherit;">
-            izam182
-          </a>
-        </p>
-        <p>
-          <i class="fab fa-github"></i>
-          Github:
-          <a href="https://github.com/izam182" target="_blank" style="text-decoration: none; color: inherit;">
-            izam182
-          </a>
-        </p>
-    </div>
+
+<!-- =============================================================
+     ABOUT
+============================================================= -->
+
+<section id="about"
+         class="section">
+
+    <div class="container-custom">
+
+        <div class="section-header reveal">
+
+            <span class="section-label">
+
+                <i class="fa-solid fa-user"></i>
+
+                About Me
+
+            </span>
+
+            <h2 class="section-title">
+                Developer yang memahami
+                teknologi dan kebutuhan pendidikan.
+            </h2>
+
+        </div>
 
 
-    <!-- Form Kontak -->
-    <div class="text-center mt-5">
-        <h2 class="section-title">Kirim Pesan Langsung</h2>
-        <form action="https://formsubmit.co/dcaf08f6e8cd91693b546add3324678d" method="POST" class="row justify-content-center">
-            <input type="hidden" name="_next" value="https://izam182.github.io/thanks.html">
-            <input type="hidden" name="_autoresponse" value="Terima kasih, pesan Anda telah kami terima.">
-            <input type="hidden" name="_template" value="table">
-            
-            <div class="col-md-6 mb-3">
-                <input type="text" name="nama" class="form-control" placeholder="Nama Anda" required>
+        <div class="about-card reveal">
+
+            <div>
+
+                <div class="profile-wrapper">
+
+                    <img
+                        src="https://raw.githubusercontent.com/izam182/izam182.github.io/refs/heads/main/izam-github.jpg"
+                        alt="Muhammad Alwy Zamroni"
+                        class="profile-image"
+                        loading="lazy"
+                    >
+
+                </div>
+
             </div>
-            <div class="col-md-6 mb-3">
-                <input type="email" name="email" class="form-control" placeholder="Email Anda" required>
-            </div>
-            <div class="col-12 mb-3">
-                <textarea name="pesan" rows="5" class="form-control" placeholder="Tulis pesan Anda di sini..." required></textarea>
-            </div>
-            <div class="col-12">
-                <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Kirim Pesan</button>
-            </div>
-        </form>
-    </div>
-</div>
 
-    <div class="text-center mt-5">
-      <h2 class="section-title">Total Pengunjung</h2>
-      <p><span id="visit-count">Memuat...</span> kali dilihat</p>
+
+            <div class="about-content">
+
+                <h3>
+                    Muhammad Alwy Zamroni, S.Kom.
+                </h3>
+
+                <div class="about-role">
+                    Full Stack Web Developer & Pendidik
+                </div>
+
+
+                <p>
+                    Saya memiliki latar belakang sebagai pendidik
+                    sekaligus pengembang aplikasi web. Kombinasi
+                    pengalaman tersebut membantu saya memahami
+                    bukan hanya bagaimana sebuah sistem dibangun,
+                    tetapi juga bagaimana sistem tersebut digunakan
+                    dalam aktivitas nyata di lingkungan pendidikan.
+                </p>
+
+
+                <p>
+                    Saya berfokus pada pengembangan aplikasi
+                    yang membantu madrasah dan sekolah melakukan
+                    digitalisasi proses kerja, mulai dari PPDB,
+                    presensi, akademik, pembayaran, pelayanan,
+                    hingga manajemen perpustakaan.
+                </p>
+
+
+                <p class="mb-0">
+                    Prinsip saya sederhana:
+                    <strong>
+                        teknologi harus menyelesaikan masalah,
+                        bukan menambah kerumitan.
+                    </strong>
+                </p>
+
+            </div>
+
+        </div>
+
     </div>
+
+</section>
+
+
+
+<!-- =============================================================
+     SKILLS
+============================================================= -->
+
+<section id="skills"
+         class="section">
+
+    <div class="container-custom">
+
+        <div class="section-header reveal">
+
+            <span class="section-label">
+
+                <i class="fa-solid fa-microchip"></i>
+
+                Technology
+
+            </span>
+
+            <h2 class="section-title">
+                Teknologi yang digunakan
+            </h2>
+
+            <p class="section-description">
+
+                Teknologi dipilih berdasarkan kebutuhan proyek,
+                kemudahan pemeliharaan, performa, serta
+                pengalaman pengguna.
+
+            </p>
+
+        </div>
+
+
+        <div class="skills-grid reveal">
+
+
+            <div class="skill-item">
+
+                <i class="fa-brands fa-html5"></i>
+
+                HTML
+
+            </div>
+
+
+            <div class="skill-item">
+
+                <i class="fa-brands fa-css3-alt"></i>
+
+                CSS
+
+            </div>
+
+
+            <div class="skill-item">
+
+                <i class="fa-brands fa-js"></i>
+
+                JavaScript
+
+            </div>
+
+
+            <div class="skill-item">
+
+                <i class="fa-brands fa-php"></i>
+
+                PHP
+
+            </div>
+
+
+            <div class="skill-item">
+
+                <i class="fa-solid fa-fire"></i>
+
+                CodeIgniter
+
+            </div>
+
+
+            <div class="skill-item">
+
+                <i class="fa-brands fa-bootstrap"></i>
+
+                Bootstrap
+
+            </div>
+
+
+            <div class="skill-item">
+
+                <i class="fa-solid fa-database"></i>
+
+                MySQL
+
+            </div>
+
+
+            <div class="skill-item">
+
+                <i class="fa-brands fa-github"></i>
+
+                GitHub
+
+            </div>
+
+
+            <div class="skill-item">
+
+                <i class="fa-solid fa-plug"></i>
+
+                REST API
+
+            </div>
+
+
+            <div class="skill-item">
+
+                <i class="fa-solid fa-brain"></i>
+
+                AI Support
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =============================================================
+     CONTACT
+============================================================= -->
+
+<section id="contact"
+         class="section">
+
+    <div class="container-custom">
+
+        <div class="section-header reveal">
+
+            <span class="section-label">
+
+                <i class="fa-regular fa-envelope"></i>
+
+                Contact
+
+            </span>
+
+            <h2 class="section-title">
+                Mari membangun solusi digital.
+            </h2>
+
+            <p class="section-description">
+
+                Punya ide aplikasi, kebutuhan digitalisasi,
+                atau ingin berdiskusi mengenai pengembangan
+                sistem untuk sekolah atau madrasah?
+
+            </p>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+
+            <!-- Contact Information -->
+
+            <div class="contact-card reveal">
+
+                <h3>
+                    Hubungi saya
+                </h3>
+
+                <p>
+                    Gunakan salah satu kanal berikut untuk
+                    terhubung langsung.
+                </p>
+
+
+                <div class="contact-list">
+
+
+                    <a
+                        href="https://wa.me/6282112345435"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="contact-item">
+
+                        <span class="contact-icon">
+
+                            <i class="fa-brands fa-whatsapp"></i>
+
+                        </span>
+
+                        <div>
+
+                            <small>WhatsApp</small>
+
+                            <span>
+                                082112345435
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="https://instagram.com/izam182"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="contact-item">
+
+                        <span class="contact-icon">
+
+                            <i class="fa-brands fa-instagram"></i>
+
+                        </span>
+
+                        <div>
+
+                            <small>Instagram</small>
+
+                            <span>
+                                @izam182
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="https://github.com/izam182"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="contact-item">
+
+                        <span class="contact-icon">
+
+                            <i class="fa-brands fa-github"></i>
+
+                        </span>
+
+                        <div>
+
+                            <small>GitHub</small>
+
+                            <span>
+                                github.com/izam182
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Contact Form -->
+
+            <div class="form-card reveal">
+
+                <h3 class="mb-2">
+                    Kirim pesan
+                </h3>
+
+                <p
+                    class="mb-4"
+                    style="color:#78859a;font-size:.9rem;">
+
+                    Sampaikan kebutuhan atau ide proyek
+                    yang ingin didiskusikan.
+
+                </p>
+
+
+                <form
+                    action="https://formsubmit.co/dcaf08f6e8cd91693b546add3324678d"
+                    method="POST">
+
+
+                    <input
+                        type="hidden"
+                        name="_next"
+                        value="https://izam182.github.io/thanks.html"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="_autoresponse"
+                        value="Terima kasih, pesan Anda telah kami terima."
+                    >
+
+                    <input
+                        type="hidden"
+                        name="_template"
+                        value="table"
+                    >
+
+
+                    <div class="row g-3">
+
+
+                        <div class="col-md-6">
+
+                            <input
+                                type="text"
+                                name="nama"
+                                class="form-control"
+                                placeholder="Nama Anda"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <input
+                                type="email"
+                                name="email"
+                                class="form-control"
+                                placeholder="Email Anda"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="col-12">
+
+                            <textarea
+                                name="pesan"
+                                rows="6"
+                                class="form-control"
+                                placeholder="Tuliskan pesan atau kebutuhan proyek Anda..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <div class="col-12">
+
+                            <button
+                                type="submit"
+                                class="btn-primary-custom w-100">
+
+                                <i class="fa-solid fa-paper-plane me-2"></i>
+
+                                Kirim Pesan
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Visitor Counter -->
+
+        <div class="visitor-box reveal">
+
+            <i
+                class="fa-regular fa-eye mb-2"
+                style="color:#aaa5ff;font-size:1.25rem;">
+            </i>
+
+            <div
+                class="visitor-number"
+                id="visit-count">
+
+                Memuat...
+
+            </div>
+
+            <div class="visitor-label">
+
+                Total kunjungan halaman
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =============================================================
+     FOOTER
+============================================================= -->
 
 <footer>
-    &copy; 2025 Muhammad Alwy Zamroni, S.Kom. | izam182 Developer. All rights reserved.
+
+    <div class="container-custom">
+
+        <div class="footer-inner">
+
+            <div>
+
+                <div class="footer-name">
+                    Muhammad Alwy Zamroni, S.Kom.
+                </div>
+
+                <small>
+                    Full Stack Developer & Educator
+                </small>
+
+                <div class="mt-2">
+                    &copy;
+                    <span id="currentYear"></span>
+                    izam182. All rights reserved.
+                </div>
+
+            </div>
+
+
+            <div class="footer-social">
+
+                <a
+                    href="https://github.com/izam182"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub">
+
+                    <i class="fa-brands fa-github"></i>
+
+                </a>
+
+
+                <a
+                    href="https://instagram.com/izam182"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram">
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                </a>
+
+
+                <a
+                    href="https://wa.me/6282112345435"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-      fetch('https://abacus.jasoncameron.dev/hit/izam182.github.io/visit')
-      .then(r => r.json())
-      .then(json => {
-        document.getElementById('visit-count').innerText = json.value;
-      });
-    </script>
+
+
+<!-- Back To Top -->
+
+<button
+    id="backToTop"
+    aria-label="Kembali ke atas">
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+
+
+<!-- =============================================================
+     BOOTSTRAP
+============================================================= -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+
+<script>
+
+    /* =========================================================
+       CURRENT YEAR
+    ========================================================= */
+
+    document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+
+
+
+    /* =========================================================
+       NAVBAR SCROLL EFFECT
+    ========================================================= */
+
+    const navbar =
+        document.getElementById("mainNavbar");
+
+    const backToTop =
+        document.getElementById("backToTop");
+
+
+    function handleScroll() {
+
+        if (window.scrollY > 40) {
+
+            navbar.classList.add("scrolled");
+
+            backToTop.classList.add("show");
+
+        } else {
+
+            navbar.classList.remove("scrolled");
+
+            backToTop.classList.remove("show");
+
+        }
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        handleScroll,
+        { passive: true }
+    );
+
+
+    handleScroll();
+
+
+
+    /* =========================================================
+       BACK TO TOP
+    ========================================================= */
+
+    backToTop.addEventListener(
+        "click",
+        () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+    );
+
+
+
+    /* =========================================================
+       CLOSE MOBILE NAV AFTER CLICK
+    ========================================================= */
+
+    document
+        .querySelectorAll("#navbarMenu .nav-link")
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    const menu =
+                        document.getElementById("navbarMenu");
+
+                    const bsCollapse =
+                        bootstrap.Collapse.getInstance(menu);
+
+                    if (
+                        window.innerWidth < 992 &&
+                        bsCollapse
+                    ) {
+
+                        bsCollapse.hide();
+
+                    }
+
+                }
+            );
+
+        });
+
+
+
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================= */
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
+
+
+    const revealObserver =
+        new IntersectionObserver(
+            (entries, observer) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("active");
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: .12
+            }
+        );
+
+
+    revealElements.forEach(el => {
+
+        if (!el.classList.contains("active")) {
+
+            revealObserver.observe(el);
+
+        }
+
+    });
+
+
+
+    /* =========================================================
+       COUNTER ANIMATION
+    ========================================================= */
+
+    const counters =
+        document.querySelectorAll(".stat-number");
+
+
+    let countersStarted = false;
+
+
+    function animateCounters() {
+
+        if (countersStarted) return;
+
+        countersStarted = true;
+
+
+        counters.forEach(counter => {
+
+            const target =
+                parseInt(
+                    counter.dataset.target,
+                    10
+                );
+
+
+            let current = 0;
+
+            const duration = 1300;
+
+            const startTime =
+                performance.now();
+
+
+            function updateCounter(now) {
+
+                const progress =
+                    Math.min(
+                        (now - startTime) / duration,
+                        1
+                    );
+
+
+                const eased =
+                    1 - Math.pow(1 - progress, 3);
+
+
+                current =
+                    Math.floor(target * eased);
+
+
+                counter.textContent =
+                    current;
+
+
+                if (progress < 1) {
+
+                    requestAnimationFrame(
+                        updateCounter
+                    );
+
+                } else {
+
+                    counter.textContent =
+                        target;
+
+                }
+
+            }
+
+
+            requestAnimationFrame(
+                updateCounter
+            );
+
+        });
+
+    }
+
+
+    const statsWrapper =
+        document.querySelector(".stats-wrapper");
+
+
+    const statsObserver =
+        new IntersectionObserver(
+            entries => {
+
+                if (
+                    entries[0].isIntersecting
+                ) {
+
+                    animateCounters();
+
+                    statsObserver.disconnect();
+
+                }
+
+            },
+            {
+                threshold: .4
+            }
+        );
+
+
+    statsObserver.observe(statsWrapper);
+
+
+
+    /* =========================================================
+       VISITOR COUNTER
+    ========================================================= */
+
+    fetch(
+        "https://abacus.jasoncameron.dev/hit/izam182.github.io/visit"
+    )
+        .then(response => {
+
+            if (!response.ok) {
+                throw new Error(
+                    "Visitor API unavailable"
+                );
+            }
+
+            return response.json();
+
+        })
+        .then(data => {
+
+            document.getElementById(
+                "visit-count"
+            ).textContent =
+                Number(data.value).toLocaleString(
+                    "id-ID"
+                );
+
+        })
+        .catch(() => {
+
+            document.getElementById(
+                "visit-count"
+            ).textContent = "—";
+
+        });
+
+
+
+    /* =========================================================
+       SMOOTH ANCHOR SCROLL
+    ========================================================= */
+
+    document
+        .querySelectorAll('a[href^="#"]')
+        .forEach(anchor => {
+
+            anchor.addEventListener(
+                "click",
+                function(e) {
+
+                    const targetId =
+                        this.getAttribute("href");
+
+
+                    if (
+                        targetId === "#" ||
+                        !targetId
+                    ) {
+                        return;
+                    }
+
+
+                    const target =
+                        document.querySelector(
+                            targetId
+                        );
+
+
+                    if (!target) {
+                        return;
+                    }
+
+
+                    e.preventDefault();
+
+
+                    const navbarHeight =
+                        document
+                            .getElementById(
+                                "mainNavbar"
+                            )
+                            .offsetHeight;
+
+
+                    const position =
+                        target.getBoundingClientRect()
+                            .top +
+                        window.scrollY -
+                        navbarHeight -
+                        15;
+
+
+                    window.scrollTo({
+
+                        top: position,
+
+                        behavior: "smooth"
+
+                    });
+
+                }
+            );
+
+        });
+
+</script>
 
 
 </body>
 </html>
+```
