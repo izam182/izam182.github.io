@@ -333,8 +333,82 @@
             z-index: -1;
         }
 
+        .hero-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.02fr) minmax(380px, .78fr);
+            align-items: center;
+            gap: 45px;
+        }
+
         .hero-content {
             max-width: 730px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-visual {
+            position: relative;
+            width: 100%;
+            max-width: 590px;
+            justify-self: end;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 500px;
+            animation: heroFloat 6s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .hero-visual::before {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(109,93,252,.22) 0%, rgba(34,211,238,.10) 42%, transparent 72%);
+            filter: blur(14px);
+            z-index: -1;
+            animation: heroGlow 5s ease-in-out infinite alternate;
+        }
+
+        .hero-visual::after {
+            content: "";
+            position: absolute;
+            width: 78%;
+            height: 78%;
+            border: 1px solid rgba(255,255,255,.07);
+            border-radius: 42% 58% 55% 45% / 48% 42% 58% 52%;
+            transform: rotate(-8deg);
+            z-index: -1;
+            box-shadow: 0 0 80px rgba(109,93,252,.08);
+        }
+
+        .hero-visual img {
+            width: min(100%, 560px);
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 30px 45px rgba(0,0,0,.35));
+            transform: translateZ(0);
+        }
+
+        @keyframes heroFloat {
+            0%, 100% {
+                transform: translate3d(0, 0, 0);
+            }
+            50% {
+                transform: translate3d(0, -10px, 0);
+            }
+        }
+
+        @keyframes heroGlow {
+            from {
+                transform: scale(.92);
+                opacity: .65;
+            }
+            to {
+                transform: scale(1.08);
+                opacity: 1;
+            }
         }
 
         .availability {
@@ -1487,6 +1561,24 @@
 
         @media (max-width: 991px) {
 
+            .hero-layout {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .hero-visual {
+                max-width: 560px;
+                min-height: 0;
+                width: min(100%, 560px);
+                margin: 0 auto;
+                justify-self: center;
+                order: 2;
+            }
+
+            .hero-visual img {
+                width: min(100%, 520px);
+            }
+
             .navbar-custom {
                 padding: 12px 0;
             }
@@ -1538,6 +1630,25 @@
 
 
         @media (max-width: 767px) {
+
+            .hero-layout {
+                gap: 10px;
+            }
+
+            .hero-visual {
+                width: min(100%, 480px);
+                margin-top: 8px;
+            }
+
+            .hero-visual::before {
+                width: 270px;
+                height: 270px;
+            }
+
+            .hero-visual::after {
+                width: 82%;
+                height: 70%;
+            }
 
             .section {
                 padding: 80px 0;
@@ -1617,6 +1728,15 @@
 
 
         @media (max-width: 420px) {
+
+            .hero-visual {
+                width: 100%;
+                margin-top: 0;
+            }
+
+            .hero-visual img {
+                width: 100%;
+            }
 
             .hero-buttons {
                 flex-direction: column;
@@ -1765,7 +1885,9 @@
 
     <div class="container-custom">
 
-        <div class="hero-content reveal active">
+        <div class="hero-layout">
+
+            <div class="hero-content reveal active">
 
             <div class="availability">
 
@@ -1858,6 +1980,16 @@
 
                 </div>
 
+            </div>
+
+            </div>
+
+            <div class="hero-visual reveal">
+                <img
+                    src="heronew.png"
+                    alt="Ilustrasi solusi digital untuk dunia pendidikan"
+                    loading="eager"
+                >
             </div>
 
         </div>
